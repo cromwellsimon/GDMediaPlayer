@@ -1,0 +1,62 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://MediaPlayer/AVControls/AVControls.gd" type="Script" id=1]
+
+[node name="AVControls" type="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 2
+script = ExtResource( 1 )
+PlayPause_path = NodePath("PlaybackButtons/PlayPause")
+TimeSlider_path = NodePath("TimeControls/TimeSlider")
+TimeElapsed_path = NodePath("TimeControls/TimeElapsed")
+
+[node name="TimeControls" type="HBoxContainer" parent="."]
+margin_top = 560.0
+margin_right = 1024.0
+margin_bottom = 576.0
+
+[node name="TimeSlider" type="HSlider" parent="TimeControls"]
+margin_right = 1020.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.0
+
+[node name="TimeElapsed" type="Label" parent="TimeControls"]
+margin_left = 1024.0
+margin_top = 1.0
+margin_right = 1024.0
+margin_bottom = 15.0
+
+[node name="PlaybackButtons" type="HBoxContainer" parent="."]
+margin_top = 580.0
+margin_right = 1024.0
+margin_bottom = 600.0
+alignment = 1
+
+[node name="OpenFile" type="Button" parent="PlaybackButtons"]
+margin_right = 338.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+text = "Open File"
+
+[node name="PlayPause" type="Button" parent="PlaybackButtons"]
+margin_left = 342.0
+margin_right = 681.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+toggle_mode = true
+text = "Play/Pause"
+
+[node name="VolumeSlider" type="HSlider" parent="PlaybackButtons"]
+margin_left = 685.0
+margin_right = 1024.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+min_value = -60.0
+max_value = 0.0
+step = 0.0
+
+[connection signal="toggled" from="PlaybackButtons/PlayPause" to="." method="_on_PlayPause_toggled"]
+[connection signal="value_changed" from="PlaybackButtons/VolumeSlider" to="." method="_on_VolumeSlider_value_changed"]
