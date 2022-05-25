@@ -9,7 +9,7 @@ onready var time_slider = get_node(TimeSlider_path)
 export(NodePath) var TimeElapsed_path
 onready var time_elapsed = get_node(TimeElapsed_path)
 
-signal on_button_toggled(playing)
+signal on_play_pause_toggled(playing)
 signal on_volume_slider_changed(db)
 
 # Declare member variables here. Examples:
@@ -44,7 +44,7 @@ func update_play_pause_button_text():
 func _on_PlayPause_toggled(button_pressed):
 	pass # Replace with function body.
 	update_play_pause_button_text()
-	emit_signal("on_button_toggled", button_pressed)
+	emit_signal("on_play_pause_toggled", !button_pressed)
 
 
 func _on_VolumeSlider_value_changed(value):

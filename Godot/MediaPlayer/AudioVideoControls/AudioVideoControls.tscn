@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://MediaPlayer/AVControls/AVControls.gd" type="Script" id=1]
+[ext_resource path="res://MediaPlayer/AudioVideoControls/AudioVideoControls.gd" type="Script" id=1]
 
-[node name="AVControls" type="VBoxContainer"]
+[node name="AudioVideoControls" type="VBoxContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 alignment = 2
@@ -35,11 +35,11 @@ margin_right = 1024.0
 margin_bottom = 600.0
 alignment = 1
 
-[node name="OpenFile" type="Button" parent="PlaybackButtons"]
+[node name="HSeparator" type="HSeparator" parent="PlaybackButtons"]
 margin_right = 338.0
 margin_bottom = 20.0
 size_flags_horizontal = 3
-text = "Open File"
+size_flags_vertical = 3
 
 [node name="PlayPause" type="Button" parent="PlaybackButtons"]
 margin_left = 342.0

@@ -1,11 +1,9 @@
 extends Control
 
-export(PackedScene) var AudioPlayer_scene_path
-export(PackedScene) var VideoPlayer_scene_path
+export(PackedScene) var AudioVideoPlayer_scene_path
 export(PackedScene) var PhotoViewer_scene_path
 
-var audio_player
-var video_player
+var audio_video_player
 var photo_viewer
 
 export(NodePath) var Popup_path
@@ -26,10 +24,24 @@ func _ready():
 #func _process(delta):
 #	pass
 
+func _input(_event):
+	if(Input.is_action_just_pressed("open")):
+		popup.popup()
+
 func _on_FileDialog_file_selected(path):
 	pass # Replace with function body.
+	audio_video_player.queue_free()
+	photo_viewer.queue_free()
 	if (str(path).ends_with(".ogg")):
-		audio_player = AudioPlayer_scene_path.instance()
-		self.add_child(audio_player)
+		instance_audio_video_player()
 		var audio_stream = load(path)
-		audio_player.play_stream(audio_stream)
+		audio_video_player.play_audio_stream(audio_stream)
+	elif (str(path).ends_with(".webm")):
+		instance_audio_video_player()
+		var video_stream = load(path)
+		audio_video_player.play_video_stream(video_stream)
+		
+		
+func instance_audio_video_player():
+	audio_video_player = AudioVideoPlayer_scene_path.instance()
+	self.add_child(audio_video_player)

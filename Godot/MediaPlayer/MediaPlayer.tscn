@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://MediaPlayer/MediaPlayer.gd" type="Script" id=1]
-[ext_resource path="res://MediaPlayer/AudioPlayer/AudioPlayer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://MediaPlayer/AudioVideoPlayer/AudioVideoPlayer.tscn" type="PackedScene" id=4]
 
 [node name="MediaPlayer" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
-AudioPlayer_scene_path = ExtResource( 4 )
+AudioVideoPlayer_scene_path = ExtResource( 4 )
 Popup_path = NodePath("FileDialog")
 
 [node name="FileDialog" type="FileDialog" parent="."]
@@ -17,5 +17,7 @@ popup_exclusive = true
 window_title = "ファイルを開く"
 resizable = true
 mode = 0
+
+[node name="AudioVideoPlayer" parent="." instance=ExtResource( 4 )]
 
 [connection signal="file_selected" from="FileDialog" to="." method="_on_FileDialog_file_selected"]
