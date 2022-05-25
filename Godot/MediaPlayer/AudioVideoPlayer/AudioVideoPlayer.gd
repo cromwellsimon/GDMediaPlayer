@@ -38,7 +38,9 @@ func play_audio_stream(audio_stream) -> void:
 func play_video_stream(video_stream) -> void:
 	video_player.set_stream(video_stream)
 	video_player.play()
-	controls.init_time_controls(video_stream.get_length())
+	# Turns out that there is no way to get the length of a video stream by default lol,
+	# my only option would be to build from source and add that functionality myself
+	#controls.init_time_controls(video_stream.get_length())
 
 
 func update_volume() -> void:

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://MediaPlayer/AudioVideoControls/AudioVideoControls.tscn" type="PackedScene" id=1]
+[ext_resource path="res://MediaPlayer/AudioVideoPlayer/AudioVideoControls/AudioVideoControls.tscn" type="PackedScene" id=1]
 [ext_resource path="res://MediaPlayer/AudioVideoPlayer/AudioVideoPlayer.gd" type="Script" id=2]
 
 [node name="AudioVideoPlayer" type="PanelContainer"]

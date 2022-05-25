@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://MediaPlayer/PhotoViewer/PhotoViewer.gd" type="Script" id=1]
+
+[node name="PhotoViewer" type="PanelContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 1 )
+TextureRect_path = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1017.0
+margin_bottom = 593.0
+expand = true
+stretch_mode = 4
