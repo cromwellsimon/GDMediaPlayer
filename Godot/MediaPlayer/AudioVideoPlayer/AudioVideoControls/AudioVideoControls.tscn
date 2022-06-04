@@ -10,6 +10,7 @@ script = ExtResource( 1 )
 PlayPause_path = NodePath("PlaybackButtons/PlayPause")
 TimeSlider_path = NodePath("TimeControls/TimeSlider")
 TimeElapsed_path = NodePath("TimeControls/TimeElapsed")
+VolumeSlider_path = NodePath("PlaybackButtons/VolumeSlider")
 
 [node name="TimeControls" type="HBoxContainer" parent="."]
 margin_top = 560.0
@@ -45,6 +46,8 @@ size_flags_vertical = 3
 margin_left = 342.0
 margin_right = 681.0
 margin_bottom = 20.0
+focus_neighbour_top = NodePath("../../TimeControls/TimeSlider")
+focus_neighbour_right = NodePath("../VolumeSlider")
 size_flags_horizontal = 3
 toggle_mode = true
 text = "Play/Pause"
@@ -53,8 +56,10 @@ text = "Play/Pause"
 margin_left = 685.0
 margin_right = 1024.0
 margin_bottom = 16.0
+focus_neighbour_left = NodePath("../PlayPause")
+focus_neighbour_top = NodePath("../../TimeControls/TimeSlider")
 size_flags_horizontal = 3
-min_value = -60.0
+min_value = -80.0
 max_value = 0.0
 step = 0.0
 
